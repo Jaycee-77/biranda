@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veranda Resto Garden Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="logged-out">
+
+    <div id="loginOverlay">
+        <div class="login-card">
+            <h1>Veranda</h1>
+            <p>Restaurant Reservation System</p>
+
+            <label>Select Account</label>
+
+            <select id="loginUsername">
+                <option value="">Select Account</option>
+                <option value="admin">Admin</option>
+                <option value="staff">Staff</option>
+            </select>
+
+            <input
+                id="loginPassword"
+                type="password"
+                placeholder="Enter Password"
+            >
+
+            <button onclick="login()">Login</button>
+
+            <div id="loginError" class="login-error"></div>
+        </div>
+    </div>
+
+    <header id="topbar">
+        <div>
+            <div class="brand">Veranda</div>
+            
+        </div>
+
+        <div class="user">
+            <span id="loggedUser"></span>
+            <button class="logout" onclick="logout()">Logout</button>
+        </div>
+
+        <div id="clock">
+            <span id="clockDate"></span>
+            <strong id="clockTime"></strong>
+        </div>
+    </header>
+
+    <div id="statstrip"></div>
+
+    <div id="shell">
+        <nav id="rail"></nav>
+
+        <main id="main">
+            <div id="content"></div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
