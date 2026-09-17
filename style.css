@@ -1,0 +1,566 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    background: #f2f2f2;
+    color: #222;
+    font: 14px Arial, sans-serif;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+#topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: bold;
+    color: #550000;
+}
+
+.sub {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-left: auto;
+    margin-right: 13px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.logout {
+    padding: 7px 13px;
+    background: #550000;
+    border: 1px solid #550000;
+    border-radius: 1px;
+    color: white;
+    font-weight: bold;
+}
+
+#clock {
+    text-align: right;
+    font-size: 10px;
+    color: #777;
+}
+
+#clock strong {
+    display: block;
+    color: #222;
+    margin-top: 3px;
+    font-size: 11px;
+}
+
+#statstrip {
+    display: none;
+}
+
+#shell {
+    display: flex;
+}
+
+#rail {
+    width: 218px;
+    min-height: calc(100vh - 70px);
+    padding: 16px 11px;
+    background: white;
+    border-right: 1px solid #ccc;
+}
+
+.navgroup {
+    margin-bottom: 19px;
+}
+
+.navgroup h4 {
+    margin: 0 0 7px 8px;
+    color: #777;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.navitem {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 2px;
+    border: 0;
+    border-radius: 1px;
+    background: white;
+    color: #222;
+    text-align: left;
+}
+
+.navitem.active {
+    background: #550000;
+    color: white;
+    padding: 9px 10px;
+}
+
+.navitem:hover {
+    background: #eee;
+}
+
+#main {
+    width: 100%;
+    max-width: 1060px;
+    padding: 21px 25px;
+}
+
+.card {
+    padding: 19px 21px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.card + .card {
+    margin-top: 15px;
+}
+
+.head {
+    padding-bottom: 13px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #ccc;
+}
+
+.head h1 {
+    margin: 0 0 5px;
+    font-size: 22px;
+}
+
+.head p {
+    margin: 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-bottom: 14px;
+}
+
+.row > div {
+    flex: 1;
+    min-width: 145px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #444;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 1px;
+    background: white;
+}
+
+.row input {
+    min-height: 35px;
+}
+
+.row select {
+    min-height: 34px;
+}
+
+input:focus,
+select:focus {
+    outline: 1px solid #888;
+}
+
+.btn {
+    padding: 8px 14px;
+    border: 1px solid #550000;
+    border-radius: 1px;
+    background: #550000;
+    color: white;
+    font-weight: bold;
+}
+
+.btn.secondary {
+    padding: 7px 12px;
+    background: white;
+    color: #333;
+    border-color: #999;
+}
+
+.btn.danger {
+    padding: 8px 12px;
+    background: #550000;
+    border-color: #550000;
+}
+
+.btn.confirm {
+    padding: 9px 15px;
+    background: #550000;
+    border-color: #550000;
+}
+
+.btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+table {
+    width: 100%;
+    margin-top: 6px;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+th {
+    padding: 8px 7px;
+    background: #eee;
+    border: 1px solid #ccc;
+    color: #444;
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 9px 7px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.pill {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 1px;
+    background: #eee;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.pill.pending {
+    background: #fff1bd;
+    color: #664d03;
+}
+
+.pill.arrived {
+    background: #d5e8d5;
+    color: #245b28;
+}
+
+.pill.cancelled {
+    background: #f5d6d8;
+    color: #842029;
+}
+
+.flash {
+    padding: 9px 11px;
+    margin-bottom: 13px;
+    border: 1px solid #c9b0b0;
+    background: #f8eeee;
+    color: #550000;
+}
+
+.flash.err {
+    padding: 8px 10px;
+    border-color: #d9aeb1;
+    background: #fcebec;
+    color: #842029;
+}
+
+.empty {
+    padding: 13px 0;
+    color: #777;
+    font-style: italic;
+}
+
+.hint {
+    margin-top: 9px;
+    color: #777;
+    font-size: 11px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 11px;
+    margin-bottom: 16px;
+}
+
+.stat {
+    padding: 12px 13px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+.stat:nth-child(2) {
+    padding-top: 14px;
+}
+
+.stat:nth-child(3) {
+    padding: 10px 13px;
+}
+
+.stat .num {
+    display: block;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.stat .lbl {
+    display: block;
+    margin-top: 4px;
+    color: #777;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.session {
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.small {
+    padding: 5px 9px;
+    font-size: 11px;
+}
+
+.actions .small:nth-child(2) {
+    padding-left: 10px;
+    padding-right: 11px;
+}
+
+.ticket {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 9px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+.ticket .pos {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #999;
+    border-radius: 40%;
+    font-weight: bold;
+}
+
+.ticket .name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.ticket .size {
+    color: #777;
+    font-size: 11px;
+}
+
+.receipt {
+    max-width: 325px;
+    margin: 16px auto 0;
+    padding: 17px;
+    border: 1px dashed #999;
+    background: white;
+    font: 12px "Courier New", monospace;
+}
+
+.receipt-head {
+    text-align: center;
+}
+
+.receipt-head .rname {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.receipt-head .rsub {
+    color: #777;
+    font-size: 10px;
+}
+
+.receipt hr {
+    border: 0;
+    border-top: 1px dashed #999;
+    margin: 10px 0;
+}
+
+.receipt-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.receipt-foot {
+    margin-top: 11px;
+    text-align: center;
+    color: #777;
+}
+
+.checkbox-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0 13px;
+}
+
+.checkbox-line input {
+    width: auto;
+}
+
+.checkbox-line label {
+    display: inline;
+    margin: 0;
+    color: #333;
+}
+
+#loginOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+}
+
+.login-card {
+    width: 395px;
+    max-width: 90%;
+    padding: 27px 24px;
+    background: white;
+    border: 1px solid #bbb;
+    border-radius: 2px;
+}
+
+.login-card h1 {
+    margin: 0 0 6px;
+    color: #550000;
+    font-size: 27px;
+}
+
+.login-card p {
+    margin: 0 0 18px;
+    color: #777;
+}
+
+.login-card input,
+.login-card select {
+    margin: 7px 0;
+    padding: 9px;
+}
+
+.login-card button {
+    width: 100%;
+    margin-top: 11px;
+    padding: 10px;
+    border: 1px solid #550000;
+    border-radius: 1px;
+    background: #550000;
+    color: white;
+    font-weight: bold;
+}
+
+.login-error {
+    min-height: 19px;
+    margin-top: 9px;
+    color: #b42318;
+}
+
+body.logged-out #topbar,
+body.logged-out #statstrip,
+body.logged-out #shell {
+    display: none;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+@media (max-width: 860px) {
+
+    #shell {
+        display: block;
+    }
+
+    #rail {
+        width: 100%;
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #main {
+        max-width: none;
+        padding: 16px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #clock {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    #topbar {
+        padding: 10px 14px;
+    }
+
+    .user {
+        margin-right: 0;
+    }
+
+    .brand {
+        font-size: 19px;
+    }
+}
