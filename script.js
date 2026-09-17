@@ -27,15 +27,15 @@ const STAFF_ALLOWED = [
 const packages = [
     {
         type: "Adult",
-        price: 599
+        price: 369
     },
     {
         type: "Kid",
-        price: 399
+        price: 269
     },
     {
         type: "Senior",
-        price: 499
+        price: 295
     }
 ];
 
@@ -45,7 +45,11 @@ const tables = [
     { number: 3, seats: 4, status: "available" },
     { number: 4, seats: 4, status: "available" },
     { number: 5, seats: 6, status: "available" },
-    { number: 6, seats: 8, status: "available" }
+    { number: 6, seats: 8, status: "available" },
+    { number: 7, seats: 8, status: "available" },
+    { number: 8, seats: 10, status: "available" },
+    { number: 9, seats: 10, status: "available" },
+    { number: 10, seats: 11, status: "available" }
 ];
 
 let reservations = [];
@@ -115,7 +119,7 @@ const NAV = [
     }
 ];
 
-/* LOGIN */
+
 
 function login() {
     const username =
@@ -186,7 +190,7 @@ function logout() {
         .textContent = "";
 }
 
-/* NAVIGATION */
+
 
 function go(id) {
     if (
@@ -200,7 +204,7 @@ function go(id) {
     render();
 }
 
-/* MESSAGES */
+
 
 function setFlash(text, type = "ok") {
     flashMsg = {
@@ -337,7 +341,7 @@ function availableTableCount() {
     return count;
 }
 
-/* NAVIGATION DISPLAY */
+
 
 function renderNav() {
     let html = "";
@@ -387,7 +391,7 @@ function head(title, desc) {
     `;
 }
 
-/* RESERVATIONS */
+
 
 function reservationsTable(list, actions = false) {
     if (!list.length) {
@@ -881,7 +885,7 @@ function searchReservation() {
                    </p>`;
 }
 
-/* CANCEL RESERVATION */
+
 
 function renderCancelReservation() {
     let list = [];
@@ -1004,7 +1008,7 @@ function cancelReservationById(id) {
     render();
 }
 
-/* SORTING */
+
 
 function quickCheckIn(id) {
     checkInGuest(id);
@@ -1073,7 +1077,7 @@ function bubbleSort(a) {
     return x;
 }
 
-/* SELECTION SORT */
+
 
 function selectionSort(a) {
     let x = [...a];
@@ -1112,7 +1116,7 @@ function doSort(type) {
     render();
 }
 
-/* TABLE AVAILABILITY */
+
 
 function renderTableAvailability() {
     let total = 0;
@@ -1222,7 +1226,7 @@ function renderTableAvailability() {
     `;
 }
 
-/* TABLE ASSIGNMENT */
+
 
 function renderAssignTable() {
     let pending = [];
@@ -1647,7 +1651,7 @@ function serveNextWalkIn() {
     render();
 }
 
-/* CHECK-IN */
+
 
 function renderCheckIn() {
     let list = [];
@@ -2216,13 +2220,13 @@ function renderBillSummary() {
     `;
 }
 
-/* DISCOUNTS */
+
 
 function renderDiscounts() {
     const sub = computeSubtotal();
 
     const seniorTotal =
-        currentOrder.senior * 499;
+        currentOrder.senior * 295;
 
     const pwd =
         currentOrder.isPWD
@@ -2318,7 +2322,7 @@ function applyDiscount() {
     const sub = computeSubtotal();
 
     const seniorTotal =
-        currentOrder.senior * 499;
+        currentOrder.senior * 295;
 
     currentOrder.isPWD =
         document.getElementById(
@@ -2348,7 +2352,7 @@ function applyDiscount() {
     render();
 }
 
-/* RECEIPT */
+
 
 function receiptHtml(t) {
     return `
@@ -2402,7 +2406,7 @@ function receiptHtml(t) {
 
                 <span>
                     ₱${(
-                        t.adultQty * 599
+                        t.adultQty * 369
                     ).toLocaleString()}
                 </span>
             </div>
@@ -2414,7 +2418,7 @@ function receiptHtml(t) {
 
                 <span>
                     ₱${(
-                        t.kidQty * 399
+                        t.kidQty * 269
                     ).toLocaleString()}
                 </span>
             </div>
@@ -2426,7 +2430,7 @@ function receiptHtml(t) {
 
                 <span>
                     ₱${(
-                        t.seniorQty * 499
+                        t.seniorQty * 295
                     ).toLocaleString()}
                 </span>
             </div>
@@ -2477,7 +2481,7 @@ function receiptHtml(t) {
     `;
 }
 
-/* PAYMENT */
+
 
 function renderPayment() {
     const total =
@@ -2757,7 +2761,7 @@ function processPayment() {
     render();
 }
 
-/* TRANSACTION HISTORY / RECEIPTS */
+
 
 function transactionTable(list) {
     if (!list.length) {
@@ -3121,7 +3125,7 @@ function printReceipt(id) {
     };
 }
 
-/* FINANCIAL ANALYTICS */
+
 
 function renderDailyReport() {
     let revenue = 0;
